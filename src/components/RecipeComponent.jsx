@@ -7,7 +7,8 @@ export default class RecipePage extends Component{
     state = {
         recipe: {
             steps: [],
-            ingredients: []
+            ingredients: [],
+            tags: []
         }
     };
 
@@ -42,6 +43,15 @@ export default class RecipePage extends Component{
                         <p>-----</p>
                     </div>
                 )}
+                <hr/>
+                <h3>Tags</h3>
+                <ul>
+                    {recipe.tags.map(tag =>
+                        <div key={tag.id}>
+                            <a href={`/recipes/category/${tag.value}`}><h5>{tag.value}</h5></a>
+                        </div>
+                    )}
+                </ul>
             </div>
         );
     }
